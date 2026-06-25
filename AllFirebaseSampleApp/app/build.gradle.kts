@@ -1,15 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlinCompose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.fcm.google.services)
+    alias(libs.plugins.kotlinParcelize)
 }
 
 android {
     namespace = "com.dhruva.allfirebasesampleapp"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(37) {
+            minorApiLevel = 0
         }
     }
 
@@ -50,7 +52,19 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    ksp(libs.kotlinxMetadata)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidxHiltNavigationCompose)
+    //fcm dependencies
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.auth)
+    implementation(libs.androidxCredentials)
+    implementation(libs.androidxCredentialsPlayServicesAuth)
+    implementation(libs.googleid)
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

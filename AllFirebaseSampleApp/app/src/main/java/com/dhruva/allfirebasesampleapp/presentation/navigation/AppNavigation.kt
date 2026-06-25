@@ -30,18 +30,7 @@ import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.dhruva.allfirebasesampleapp.R
-
-@Composable
-fun AuthScreen(onNavigateToMain: (Destination) -> Unit) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Auth Screen")
-            Button(onClick = { onNavigateToMain(Destination.TODOS) }) {
-                Text("Login and Go to Todos")
-            }
-        }
-    }
-}
+import com.dhruva.allfirebasesampleapp.presentation.auth.AuthScreen
 
 @Composable
 fun TodosScreen(onNavigateToAddTodo: () -> Unit, onNavigateToDetail: (String) -> Unit) {

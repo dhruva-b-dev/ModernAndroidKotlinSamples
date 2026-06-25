@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-fun showLogDebug(tag: String, msg: String) = Log.d(tag, msg)
+fun Context.showLogDebug(msg: String) = Log.d(this.javaClass.simpleName, msg)
 
 //fun View.showSnack(text: String) = Snackbar.make(this, text, 1000).show()
 
